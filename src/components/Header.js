@@ -7,6 +7,7 @@ export class Header extends React.Component {
         <div className="container">
           <div className="navbar-header">
             <ul className="nav navbar-nav">
+              {/* eslint-disable-next-line*/}
               <li><a href="">Home</a></li>
             </ul>
           </div>
