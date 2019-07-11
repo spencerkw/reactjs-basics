@@ -7,7 +7,7 @@ export const Header = (props) => {
         <div className="navbar-header">
           <ul className="nav navbar-nav">
             {/* eslint-disable-next-line*/}
-            <li><a href="">Home</a></li>
+            <li><a href="">{props.homeLink}</a></li>
           </ul>
         </div>
       </div>
