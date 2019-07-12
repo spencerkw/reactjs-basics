@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 export class Home extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       age: props.initialAge,
       status: 0,
-      homeLink: "Changed Link"
+      homeLink: props.initialLinkName
     };
     setTimeout(() => {
       this.setState({
@@ -26,6 +26,12 @@ export class Home extends React.Component {
     this.props.changeLink(this.state.homeLink);
   }
 
+  onHandleChange(event) {
+    this.setState({
+      homeLink: event.target.value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -37,6 +43,11 @@ export class Home extends React.Component {
         <hr />
         <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
         <hr />
+        <input
+          type="text"
+          value={this.state.homeLink}
+          onChange={(event) => this.onHandleChange(event)}
+        />
         <button onClick={() => this.onChangeLink()} className="btn btn-primary">Change Header Link</button>
       </div>
     );
@@ -47,5 +58,7 @@ export class Home extends React.Component {
 Home.propTypes = {
   name: PropTypes.string,
   initialAge: PropTypes.number,
-  greet: PropTypes.func
+  greet: PropTypes.func,
+  changeLink: PropTypes.func,
+  initialLinkName: PropTypes.string
 }
